@@ -29,11 +29,11 @@ public  class UserServiceImpl implements IUserService
 		dao.commitTrasaction();
 		return user;
 	}
-
-	@SuppressWarnings("unlikely-arg-type")
-	public User login(User user) {
+	
+       @Override
+		public User login(User user) {
 		dao.beginTransaction();
-		dao.equals(user);
+		dao.login(user);
 		dao.commitTrasaction();
 		return user;
 	}
@@ -41,6 +41,7 @@ public  class UserServiceImpl implements IUserService
 	@Override
 	public boolean logOut() {
 		dao.beginTransaction();
+		dao.logout(false);
 		dao.commitTrasaction();
 		return false;
 	}
