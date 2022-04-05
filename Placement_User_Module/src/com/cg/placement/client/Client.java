@@ -14,11 +14,12 @@ class client
 		User user = new User();
 				IUserService service = new UserServiceImpl();
 		
+				
 		// Create
-		user.setId(111);
-		user.setName("yuvraj");
+		user.setId(112);
+		user.setName("manish");
 		user.setType("user");
-		user.setPassword("yuvraj666666");
+		user.setPassword("manish123");
 		
 		service.addUser(user);
 		
@@ -44,15 +45,9 @@ class client
 		service.updateUser(user);
 		System.out.println("Update is successful");
 	
-	
-		user = service.login(user);
-		admin = service.login(admin);
-		user.setName("rishab");
-		user.setPassword("rishab99");
+	*/
+				
 		
-		System.out.println("Enter userId :" + admin);
-		
-		*/
 		
 	}
 }

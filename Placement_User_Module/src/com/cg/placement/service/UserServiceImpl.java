@@ -4,16 +4,16 @@ import com.cg.placement.entities.User;
 import com.cg.placement.repository.IUserRepository;
 import com.cg.placement.repository.UserRepositoryImpl;
 
-public  class UserServiceImpl implements IUserService
-{
+public class UserServiceImpl implements IUserService{
+
 	// Step 1: Establishing connection between Service and Repo
-	private IUserRepository dao;
-	
-	public UserServiceImpl() 
-	{
-		dao = new UserRepositoryImpl();
-	}
-	// Step 2: Service calls to perform CRUD Operation
+		private IUserRepository dao;
+		
+		public UserServiceImpl() 
+		{
+			dao = new UserRepositoryImpl();
+		}
+
 	@Override
 	public User addUser(User user) {
 		dao.beginTransaction();
@@ -30,23 +30,18 @@ public  class UserServiceImpl implements IUserService
 		return user;
 	}
 	
-       @Override
-		public User login(User user) {
+	@Override
+	public User login(User user) {
 		dao.beginTransaction();
-		dao.login(user);
+		dao.updateUser(user);
 		dao.commitTrasaction();
 		return user;
 	}
 
 	@Override
 	public boolean logOut() {
-		dao.beginTransaction();
-		dao.logout(false);
-		dao.commitTrasaction();
+		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	}
-	
-	
 
+}

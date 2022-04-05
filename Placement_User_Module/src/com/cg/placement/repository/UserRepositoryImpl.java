@@ -4,8 +4,7 @@ import javax.persistence.EntityManager;
 
 import com.cg.placement.entities.User;
 
-public class UserRepositoryImpl implements IUserRepository
-{
+public class UserRepositoryImpl implements IUserRepository {
 	
 	private EntityManager entityManager;
 	public UserRepositoryImpl() 
@@ -13,7 +12,6 @@ public class UserRepositoryImpl implements IUserRepository
 		entityManager = JPAUtil.getEntityManager();
 	}
 	// Create operation - Repo/DAO
-	
 
 	@Override
 	public User addNewUser(User user) {
@@ -26,11 +24,11 @@ public class UserRepositoryImpl implements IUserRepository
 		entityManager.merge(user);
 		return user;
 	}
-	
+
 	@Override
-	public User deleteUser(User user) {
-		entityManager.remove(user);
-		return user;
+	public User deleteUser(int id) {
+		entityManager.remove(id);
+		return null;
 	}
 
 	@Override
@@ -45,14 +43,4 @@ public class UserRepositoryImpl implements IUserRepository
 		
 	}
 
-
-	@Override
-	public User deleteUser(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
-
-
-
